@@ -1,0 +1,38 @@
+<h1>Burger Joint</h1>
+
+<h2>Burgers that have not yet been devoured, but they will</h2>
+
+<ul>
+    {{#each burgers}}
+        {{#unless devoured}}
+            {{> burgers/burger-block devour=true}}
+        {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Burgers that have been devoured</h2>
+
+<ul>
+    {{#each burgers}}
+        {{#unless devoured}}
+            {{> burgers/burger-block devour=false}}
+        {{/if}}
+    {{/each}}
+</ul>
+
+<h2>Add a burger</h2>
+
+<form class="create-form">
+    <div class="new-from">
+        <label for="new">Burger Title:</label>
+        <input type="text" id="new" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="devoured">Devoured?</label><br>
+        <input type="radio" name="devoured" value="1" checked> Not Devoured<br>
+        <input type="radio" name="devoured" value="0">Devoured
+    </div>
+
+    <button type="submit">Add This Goodness</button>
+</form>
